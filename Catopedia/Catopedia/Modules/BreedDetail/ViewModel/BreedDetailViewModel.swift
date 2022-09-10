@@ -14,5 +14,7 @@ class BreedDetailViewModel {
         self.breed = breed
     }
     
-    
+    func getNumberOfItems() -> Int {
+        return 2
+    }
 }

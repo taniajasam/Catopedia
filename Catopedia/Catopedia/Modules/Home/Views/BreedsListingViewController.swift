@@ -22,6 +22,11 @@ class BreedsListingViewController: UIViewController {
         self.viewModel.fetchBreedsList()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
     func initialiseTableView() {
         breedsListTableView.register(UINib(nibName: "BreedsListTableViewCell", bundle: nil), forCellReuseIdentifier: "BreedsListTableViewCell")
         breedsListTableView.delegate = self
@@ -67,5 +72,13 @@ extension BreedsListingViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         self.viewModel.fetchDataIfNeeded(cellIndex: indexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let breedDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BreedDetailViewController") as? BreedDetailViewController {
+            breedDetailVC.viewModel = BreedDetailViewModel(breed: self.viewModel.breedsList[indexPath.row])
+            self.navigationController?.pushViewController(breedDetailVC, animated: true)
+        }
+        
     }
 }

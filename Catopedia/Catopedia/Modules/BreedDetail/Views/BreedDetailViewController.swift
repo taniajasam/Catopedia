@@ -11,6 +11,8 @@ class BreedDetailViewController: UIViewController {
     
     @IBOutlet weak var breedDetailTableView: UITableView!
     
+    var viewModel: BreedDetailViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initialiseTableView()
@@ -26,14 +28,14 @@ class BreedDetailViewController: UIViewController {
 
 extension BreedDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return self.viewModel?.getNumberOfItems() ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
             if let cell: BreedImageTableViewCell = tableView.dequeueReusableCell(withIdentifier: "BreedImageTableViewCell", for: indexPath) as? BreedImageTableViewCell {
-                cell.setupImageView(imageURL: "")
+                cell.setupImageView(imageURL: self.viewModel?.breed?.image?.url ?? "")
                 return cell
             }
         case 1:
