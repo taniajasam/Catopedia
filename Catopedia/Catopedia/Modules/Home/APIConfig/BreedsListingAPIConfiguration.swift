@@ -22,7 +22,7 @@ struct BreedsListAPIConfiguration: RequestConfiguration {
     }
     
     func getRequestBody() -> [String : Any]? {
-        ["limit": pageSize,
-         "page": pageCount]
+        ["limit": "\(pageSize)",
+         "page": "\(pageCount)"]
     }
 }

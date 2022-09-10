@@ -33,9 +33,25 @@ class BreedsListViewModel: ObservableObject {
                     break
                 }
             }, receiveValue: { [weak self] response in
-                self?.breedsList.append(contentsOf: response)
-                self?.pageCount += 1
+                if response.isEmpty {
+                    /// To restrict the next page call
+                    self?.pageCount = -1
+                } else {
+                    self?.breedsList.append(contentsOf: response)
+                    self?.pageCount += 1
+                }
             })
             .store(in: &subscriptions)
+    }
+    
+    func getNumberOfItems() -> Int {
+        self.breedsList.count 
+    }
+    
+    func fetchDataIfNeeded(cellIndex: Int) {
+        /// Ideally we would be getting totalPages or identifier in some API response and then pageCount (-1) condition won't be required
+        if self.breedsList.count - 5 < cellIndex, self.pageCount != -1 {
+            self.fetchBreedsList()
+        }
     }
 }
