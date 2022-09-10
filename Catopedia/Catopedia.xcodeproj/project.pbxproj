@@ -19,6 +19,7 @@
 		2067D57228CC92020032BA46 /* BreedsListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067D57128CC92020032BA46 /* BreedsListingViewModel.swift */; };
 		2067D57428CC921A0032BA46 /* BreedsListingAPIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067D57328CC921A0032BA46 /* BreedsListingAPIConfiguration.swift */; };
 		2067D57828CC924C0032BA46 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067D57728CC924C0032BA46 /* NetworkManager.swift */; };
+		2067D57B28CC932D0032BA46 /* RequestConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067D57A28CC932D0032BA46 /* RequestConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		2067D57128CC92020032BA46 /* BreedsListingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsListingViewModel.swift; sourceTree = "<group>"; };
 		2067D57328CC921A0032BA46 /* BreedsListingAPIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsListingAPIConfiguration.swift; sourceTree = "<group>"; };
 		2067D57728CC924C0032BA46 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		2067D57A28CC932D0032BA46 /* RequestConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				2067D57728CC924C0032BA46 /* NetworkManager.swift */,
+				2067D57A28CC932D0032BA46 /* RequestConfiguration.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 			files = (
 				2067D53A28CC8E7E0032BA46 /* AppDelegate.swift in Sources */,
 				2067D57028CC91D40032BA46 /* BreedsListingViewController.swift in Sources */,
+				2067D57B28CC932D0032BA46 /* RequestConfiguration.swift in Sources */,
 				2067D57828CC924C0032BA46 /* NetworkManager.swift in Sources */,
 				2067D57228CC92020032BA46 /* BreedsListingViewModel.swift in Sources */,
 				2067D53C28CC8E7E0032BA46 /* SceneDelegate.swift in Sources */,
