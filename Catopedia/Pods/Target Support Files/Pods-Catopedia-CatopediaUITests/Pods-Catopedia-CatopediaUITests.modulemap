@@ -1,0 +1,6 @@
+framework module Pods_Catopedia_CatopediaUITests {
+  umbrella header "Pods-Catopedia-CatopediaUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
