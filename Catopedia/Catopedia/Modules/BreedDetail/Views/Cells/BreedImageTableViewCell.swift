@@ -10,6 +10,7 @@ import UIKit
 class BreedImageTableViewCell: UITableViewCell {
     
     @IBOutlet weak var breedImageView: UIImageView!
+    @IBOutlet weak var breedImageViewHeightConstraint: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,8 +23,10 @@ class BreedImageTableViewCell: UITableViewCell {
         self.breedImageView.layer.cornerRadius = 12
     }
     
-    func setupImageView(imageURL: String) {
-        self.breedImageView.kf.setImage(with: URL(string: imageURL))
+    func setupImageView(breedImage: BreedImage) {
+        self.breedImageView.kf.setImage(with: URL(string: breedImage.url ?? ""))
+        let aspectRatio: CGFloat =       CGFloat(breedImage.width ?? 0)/CGFloat(breedImage.height ?? 1)
+        breedImageViewHeightConstraint.constant = self.breedImageView.frame.size.width*aspectRatio
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -18,6 +18,17 @@ class BreedDetailViewController: UIViewController {
         self.initialiseTableView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.navigationBar.tintColor = .black
+        self.title = self.viewModel?.breed?.name ?? ""
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     func initialiseTableView() {
         breedDetailTableView.register(UINib(nibName: "BreedImageTableViewCell", bundle: nil), forCellReuseIdentifier: "BreedImageTableViewCell")
         breedDetailTableView.register(UINib(nibName: "BreedDescriptionTableViewCell", bundle: nil), forCellReuseIdentifier: "BreedDescriptionTableViewCell")
@@ -35,9 +46,11 @@ extension BreedDetailViewController: UITableViewDelegate, UITableViewDataSource 
         switch indexPath.row {
         case 0:
             if let cell: BreedImageTableViewCell = tableView.dequeueReusableCell(withIdentifier: "BreedImageTableViewCell", for: indexPath) as? BreedImageTableViewCell {
-                cell.setupImageView(imageURL: self.viewModel?.breed?.image?.url ?? "")
+                cell.setupImageView(breedImage: (self.viewModel?.breed?.image)!)
+                self.view.backgroundColor = cell.breedImageView.image?.averageColor
                 return cell
             }
+            
         case 1:
             if let cell: BreedDescriptionTableViewCell = tableView.dequeueReusableCell(withIdentifier: "BreedDescriptionTableViewCell", for: indexPath) as? BreedDescriptionTableViewCell {
                 return cell
