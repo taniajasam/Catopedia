@@ -26,7 +26,6 @@ class BreedsListingViewController: UIViewController {
         breedsListTableView.register(UINib(nibName: "BreedsListTableViewCell", bundle: nil), forCellReuseIdentifier: "BreedsListTableViewCell")
         breedsListTableView.delegate = self
         breedsListTableView.dataSource = self
-//        breedsListTableView.rowHeight = UITableView.automaticDimension
     }
         
     func bindViewModel() {
@@ -60,6 +59,7 @@ extension BreedsListingViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell: BreedsListTableViewCell = tableView.dequeueReusableCell(withIdentifier: "BreedsListTableViewCell", for: indexPath) as? BreedsListTableViewCell {
+            cell.setupData(breed: self.viewModel.breedsList[indexPath.row])
             return cell
         }
         return UITableViewCell()

@@ -8,6 +8,7 @@
 import Foundation
 
 struct Breed: Decodable {
+    var weight: BreedWeight?
     var id: String?
     var name: String?
     var temperament: String?
@@ -18,6 +19,7 @@ struct Breed: Decodable {
     var image: BreedImage?
     
     enum CodingKeys: String, CodingKey {
+        case weight
         case id
         case name
         case temperament
@@ -30,6 +32,7 @@ struct Breed: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        weight = try container.decodeIfPresent(BreedWeight.self, forKey: .weight)
         id = try container.decodeIfPresent(String.self, forKey: .id)
         name = try container.decodeIfPresent(String.self, forKey: .name)
         temperament = try container.decodeIfPresent(String.self, forKey: .temperament)
@@ -39,6 +42,11 @@ struct Breed: Decodable {
         alt_names = try container.decodeIfPresent(String.self, forKey: .alt_names)
         image = try container.decodeIfPresent(BreedImage.self, forKey: .image)
     }
+}
+
+struct BreedWeight: Decodable {
+    var imperial: String?
+    var metric: String?
 }
 
 struct BreedImage: Decodable {
