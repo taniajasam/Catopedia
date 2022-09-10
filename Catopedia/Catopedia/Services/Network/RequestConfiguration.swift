@@ -29,7 +29,7 @@ extension RequestConfiguration {
     }
     
     func getHeaders() -> [String: String] {
-         [:]
+         ["x-api-key": "live_tNe64ApsR8LeX5QfAZnCre9PKY1npI2RL2W3sc0w4yklu1hMaFOu2iutOzhaUBiA"]
     }
     
     func getRequestBody() -> [String: Any]? {

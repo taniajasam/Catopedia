@@ -22,6 +22,8 @@
 		2067D57B28CC932D0032BA46 /* RequestConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067D57A28CC932D0032BA46 /* RequestConfiguration.swift */; };
 		2067D57F28CC99E90032BA46 /* BreedsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067D57D28CC99E90032BA46 /* BreedsListTableViewCell.swift */; };
 		2067D58028CC99E90032BA46 /* BreedsListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2067D57E28CC99E90032BA46 /* BreedsListTableViewCell.xib */; };
+		2067D58328CC9FD40032BA46 /* URLList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067D58228CC9FD40032BA46 /* URLList.swift */; };
+		2067D58528CCA0B30032BA46 /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067D58428CCA0B30032BA46 /* Breed.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		2067D57A28CC932D0032BA46 /* RequestConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestConfiguration.swift; sourceTree = "<group>"; };
 		2067D57D28CC99E90032BA46 /* BreedsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsListTableViewCell.swift; sourceTree = "<group>"; };
 		2067D57E28CC99E90032BA46 /* BreedsListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BreedsListTableViewCell.xib; sourceTree = "<group>"; };
+		2067D58228CC9FD40032BA46 /* URLList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLList.swift; sourceTree = "<group>"; };
+		2067D58428CCA0B30032BA46 /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,7 @@
 			children = (
 				2067D53928CC8E7E0032BA46 /* AppDelegate.swift */,
 				2067D53B28CC8E7E0032BA46 /* SceneDelegate.swift */,
+				2067D58128CC9FC30032BA46 /* AppConstants */,
 				2067D56928CC913D0032BA46 /* Modules */,
 				2067D57528CC922E0032BA46 /* Services */,
 				2067D57928CC92640032BA46 /* Resources */,
@@ -179,6 +184,7 @@
 		2067D56D28CC91670032BA46 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2067D58428CCA0B30032BA46 /* Breed.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -223,6 +229,14 @@
 				2067D57E28CC99E90032BA46 /* BreedsListTableViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		2067D58128CC9FC30032BA46 /* AppConstants */ = {
+			isa = PBXGroup;
+			children = (
+				2067D58228CC9FD40032BA46 /* URLList.swift */,
+			);
+			path = AppConstants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,6 +378,8 @@
 				2067D57F28CC99E90032BA46 /* BreedsListTableViewCell.swift in Sources */,
 				2067D57228CC92020032BA46 /* BreedsListingViewModel.swift in Sources */,
 				2067D53C28CC8E7E0032BA46 /* SceneDelegate.swift in Sources */,
+				2067D58328CC9FD40032BA46 /* URLList.swift in Sources */,
+				2067D58528CCA0B30032BA46 /* Breed.swift in Sources */,
 				2067D57428CC921A0032BA46 /* BreedsListingAPIConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
