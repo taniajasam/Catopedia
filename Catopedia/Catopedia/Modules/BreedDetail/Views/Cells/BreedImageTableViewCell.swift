@@ -8,10 +8,22 @@
 import UIKit
 
 class BreedImageTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var breedImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.setupViews()
+    }
+    
+    func setupViews() {
+        self.breedImageView.clipsToBounds = true
+        self.breedImageView.layer.masksToBounds = true
+        self.breedImageView.layer.cornerRadius = 12
+    }
+    
+    func setupImageView(imageURL: String) {
+        self.breedImageView.kf.setImage(with: URL(string: imageURL))
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -25,7 +25,7 @@ class BreedsListTableViewCell: UITableViewCell {
     }
     
     func setupViews() {
-        self.breedImageView.layer.cornerRadius = 10.0
+        self.breedImageView.layer.cornerRadius = self.breedImageView.frame.size.height/2
         self.containerView.layer.cornerRadius = 10.0
     }
     
