@@ -9,13 +9,16 @@
 /* Begin PBXBuildFile section */
 		2067D53A28CC8E7E0032BA46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067D53928CC8E7E0032BA46 /* AppDelegate.swift */; };
 		2067D53C28CC8E7E0032BA46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067D53B28CC8E7E0032BA46 /* SceneDelegate.swift */; };
-		2067D53E28CC8E7E0032BA46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067D53D28CC8E7E0032BA46 /* ViewController.swift */; };
 		2067D54128CC8E7E0032BA46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2067D53F28CC8E7E0032BA46 /* Main.storyboard */; };
 		2067D54328CC8E7F0032BA46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2067D54228CC8E7F0032BA46 /* Assets.xcassets */; };
 		2067D54628CC8E7F0032BA46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2067D54428CC8E7F0032BA46 /* LaunchScreen.storyboard */; };
 		2067D55128CC8E800032BA46 /* CatopediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067D55028CC8E800032BA46 /* CatopediaTests.swift */; };
 		2067D55B28CC8E800032BA46 /* CatopediaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067D55A28CC8E800032BA46 /* CatopediaUITests.swift */; };
 		2067D55D28CC8E800032BA46 /* CatopediaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067D55C28CC8E800032BA46 /* CatopediaUITestsLaunchTests.swift */; };
+		2067D57028CC91D40032BA46 /* BreedsListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067D56F28CC91D40032BA46 /* BreedsListingViewController.swift */; };
+		2067D57228CC92020032BA46 /* BreedsListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067D57128CC92020032BA46 /* BreedsListingViewModel.swift */; };
+		2067D57428CC921A0032BA46 /* BreedsListingAPIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067D57328CC921A0032BA46 /* BreedsListingAPIConfiguration.swift */; };
+		2067D57828CC924C0032BA46 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067D57728CC924C0032BA46 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +42,6 @@
 		2067D53628CC8E7E0032BA46 /* Catopedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catopedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2067D53928CC8E7E0032BA46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2067D53B28CC8E7E0032BA46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2067D53D28CC8E7E0032BA46 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2067D54028CC8E7E0032BA46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2067D54228CC8E7F0032BA46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2067D54528CC8E7F0032BA46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +51,10 @@
 		2067D55628CC8E800032BA46 /* CatopediaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatopediaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2067D55A28CC8E800032BA46 /* CatopediaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatopediaUITests.swift; sourceTree = "<group>"; };
 		2067D55C28CC8E800032BA46 /* CatopediaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatopediaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2067D56F28CC91D40032BA46 /* BreedsListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsListingViewController.swift; sourceTree = "<group>"; };
+		2067D57128CC92020032BA46 /* BreedsListingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsListingViewModel.swift; sourceTree = "<group>"; };
+		2067D57328CC921A0032BA46 /* BreedsListingAPIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsListingAPIConfiguration.swift; sourceTree = "<group>"; };
+		2067D57728CC924C0032BA46 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +107,10 @@
 			children = (
 				2067D53928CC8E7E0032BA46 /* AppDelegate.swift */,
 				2067D53B28CC8E7E0032BA46 /* SceneDelegate.swift */,
-				2067D53D28CC8E7E0032BA46 /* ViewController.swift */,
+				2067D56928CC913D0032BA46 /* Modules */,
+				2067D57528CC922E0032BA46 /* Services */,
+				2067D57928CC92640032BA46 /* Resources */,
 				2067D53F28CC8E7E0032BA46 /* Main.storyboard */,
-				2067D54228CC8E7F0032BA46 /* Assets.xcassets */,
 				2067D54428CC8E7F0032BA46 /* LaunchScreen.storyboard */,
 				2067D54728CC8E7F0032BA46 /* Info.plist */,
 			);
@@ -125,6 +132,80 @@
 				2067D55C28CC8E800032BA46 /* CatopediaUITestsLaunchTests.swift */,
 			);
 			path = CatopediaUITests;
+			sourceTree = "<group>";
+		};
+		2067D56928CC913D0032BA46 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				2067D56A28CC914B0032BA46 /* Home */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		2067D56A28CC914B0032BA46 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2067D56E28CC916F0032BA46 /* APIConfig */,
+				2067D56D28CC91670032BA46 /* Models */,
+				2067D56C28CC91600032BA46 /* ViewModel */,
+				2067D56B28CC915B0032BA46 /* Views */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		2067D56B28CC915B0032BA46 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2067D56F28CC91D40032BA46 /* BreedsListingViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2067D56C28CC91600032BA46 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2067D57128CC92020032BA46 /* BreedsListingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2067D56D28CC91670032BA46 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2067D56E28CC916F0032BA46 /* APIConfig */ = {
+			isa = PBXGroup;
+			children = (
+				2067D57328CC921A0032BA46 /* BreedsListingAPIConfiguration.swift */,
+			);
+			path = APIConfig;
+			sourceTree = "<group>";
+		};
+		2067D57528CC922E0032BA46 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2067D57628CC92390032BA46 /* Network */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		2067D57628CC92390032BA46 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				2067D57728CC924C0032BA46 /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		2067D57928CC92640032BA46 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2067D54228CC8E7F0032BA46 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +339,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2067D53E28CC8E7E0032BA46 /* ViewController.swift in Sources */,
 				2067D53A28CC8E7E0032BA46 /* AppDelegate.swift in Sources */,
+				2067D57028CC91D40032BA46 /* BreedsListingViewController.swift in Sources */,
+				2067D57828CC924C0032BA46 /* NetworkManager.swift in Sources */,
+				2067D57228CC92020032BA46 /* BreedsListingViewModel.swift in Sources */,
 				2067D53C28CC8E7E0032BA46 /* SceneDelegate.swift in Sources */,
+				2067D57428CC921A0032BA46 /* BreedsListingAPIConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
