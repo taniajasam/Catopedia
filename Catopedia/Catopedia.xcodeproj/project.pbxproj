@@ -24,6 +24,12 @@
 		2067D58028CC99E90032BA46 /* BreedsListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2067D57E28CC99E90032BA46 /* BreedsListTableViewCell.xib */; };
 		2067D58328CC9FD40032BA46 /* URLList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067D58228CC9FD40032BA46 /* URLList.swift */; };
 		2067D58528CCA0B30032BA46 /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067D58428CCA0B30032BA46 /* Breed.swift */; };
+		2067D58828CCDD730032BA46 /* BreedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067D58728CCDD730032BA46 /* BreedDetailViewController.swift */; };
+		2067D58F28CCDFC00032BA46 /* BreedImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067D58D28CCDFC00032BA46 /* BreedImageTableViewCell.swift */; };
+		2067D59028CCDFC00032BA46 /* BreedImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2067D58E28CCDFC00032BA46 /* BreedImageTableViewCell.xib */; };
+		2067D59328CCDFDB0032BA46 /* BreedDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067D59128CCDFDB0032BA46 /* BreedDescriptionTableViewCell.swift */; };
+		2067D59428CCDFDB0032BA46 /* BreedDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2067D59228CCDFDB0032BA46 /* BreedDescriptionTableViewCell.xib */; };
+		2067D59628CCE0020032BA46 /* BreedDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067D59528CCE0020032BA46 /* BreedDetailViewModel.swift */; };
 		95EDBAFFE21D74C6E41D531D /* Pods_Catopedia_CatopediaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06C391BC5E9F7144B7139126 /* Pods_Catopedia_CatopediaUITests.framework */; };
 		A285B151B380BB40A88BB862 /* Pods_CatopediaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42BA39B9685FDF2696755324 /* Pods_CatopediaTests.framework */; };
 		C0F6EEAC6035EAD155D28B48 /* Pods_Catopedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4786D1E61000B6B32537C2B3 /* Pods_Catopedia.framework */; };
@@ -70,6 +76,12 @@
 		2067D57E28CC99E90032BA46 /* BreedsListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BreedsListTableViewCell.xib; sourceTree = "<group>"; };
 		2067D58228CC9FD40032BA46 /* URLList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLList.swift; sourceTree = "<group>"; };
 		2067D58428CCA0B30032BA46 /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
+		2067D58728CCDD730032BA46 /* BreedDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailViewController.swift; sourceTree = "<group>"; };
+		2067D58D28CCDFC00032BA46 /* BreedImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedImageTableViewCell.swift; sourceTree = "<group>"; };
+		2067D58E28CCDFC00032BA46 /* BreedImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BreedImageTableViewCell.xib; sourceTree = "<group>"; };
+		2067D59128CCDFDB0032BA46 /* BreedDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		2067D59228CCDFDB0032BA46 /* BreedDescriptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BreedDescriptionTableViewCell.xib; sourceTree = "<group>"; };
+		2067D59528CCE0020032BA46 /* BreedDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailViewModel.swift; sourceTree = "<group>"; };
 		313DF23F4907D1FB6C14315D /* Pods-CatopediaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CatopediaTests.debug.xcconfig"; path = "Target Support Files/Pods-CatopediaTests/Pods-CatopediaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		42BA39B9685FDF2696755324 /* Pods_CatopediaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CatopediaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4786D1E61000B6B32537C2B3 /* Pods_Catopedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Catopedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,7 +129,6 @@
 				313DF23F4907D1FB6C14315D /* Pods-CatopediaTests.debug.xcconfig */,
 				6F332553976F726EAEB27270 /* Pods-CatopediaTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -179,6 +190,7 @@
 		2067D56928CC913D0032BA46 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2067D58628CCDD390032BA46 /* BreedDetail */,
 				2067D56A28CC914B0032BA46 /* Home */,
 			);
 			path = Modules;
@@ -268,6 +280,43 @@
 				2067D58228CC9FD40032BA46 /* URLList.swift */,
 			);
 			path = AppConstants;
+			sourceTree = "<group>";
+		};
+		2067D58628CCDD390032BA46 /* BreedDetail */ = {
+			isa = PBXGroup;
+			children = (
+				2067D58B28CCDF860032BA46 /* ViewModel */,
+				2067D58A28CCDF780032BA46 /* Views */,
+			);
+			path = BreedDetail;
+			sourceTree = "<group>";
+		};
+		2067D58A28CCDF780032BA46 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2067D58C28CCDF960032BA46 /* Cells */,
+				2067D58728CCDD730032BA46 /* BreedDetailViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2067D58B28CCDF860032BA46 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2067D59528CCE0020032BA46 /* BreedDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2067D58C28CCDF960032BA46 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2067D58D28CCDFC00032BA46 /* BreedImageTableViewCell.swift */,
+				2067D58E28CCDFC00032BA46 /* BreedImageTableViewCell.xib */,
+				2067D59128CCDFDB0032BA46 /* BreedDescriptionTableViewCell.swift */,
+				2067D59228CCDFDB0032BA46 /* BreedDescriptionTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		FC8FE8480A2D9D38DB9E44E2 /* Frameworks */ = {
@@ -389,6 +438,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2067D59028CCDFC00032BA46 /* BreedImageTableViewCell.xib in Resources */,
+				2067D59428CCDFDB0032BA46 /* BreedDescriptionTableViewCell.xib in Resources */,
 				2067D58028CC99E90032BA46 /* BreedsListTableViewCell.xib in Resources */,
 				2067D54628CC8E7F0032BA46 /* LaunchScreen.storyboard in Resources */,
 				2067D54328CC8E7F0032BA46 /* Assets.xcassets in Resources */,
@@ -521,12 +572,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				2067D53A28CC8E7E0032BA46 /* AppDelegate.swift in Sources */,
+				2067D58828CCDD730032BA46 /* BreedDetailViewController.swift in Sources */,
 				2067D57028CC91D40032BA46 /* BreedsListingViewController.swift in Sources */,
 				2067D57B28CC932D0032BA46 /* RequestConfiguration.swift in Sources */,
 				2067D57828CC924C0032BA46 /* NetworkManager.swift in Sources */,
 				2067D57F28CC99E90032BA46 /* BreedsListTableViewCell.swift in Sources */,
+				2067D59328CCDFDB0032BA46 /* BreedDescriptionTableViewCell.swift in Sources */,
 				2067D57228CC92020032BA46 /* BreedsListingViewModel.swift in Sources */,
 				2067D53C28CC8E7E0032BA46 /* SceneDelegate.swift in Sources */,
+				2067D58F28CCDFC00032BA46 /* BreedImageTableViewCell.swift in Sources */,
+				2067D59628CCE0020032BA46 /* BreedDetailViewModel.swift in Sources */,
 				2067D58328CC9FD40032BA46 /* URLList.swift in Sources */,
 				2067D58528CCA0B30032BA46 /* Breed.swift in Sources */,
 				2067D57428CC921A0032BA46 /* BreedsListingAPIConfiguration.swift in Sources */,

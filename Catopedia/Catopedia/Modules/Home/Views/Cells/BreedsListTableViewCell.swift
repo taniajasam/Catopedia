@@ -16,6 +16,7 @@ class BreedsListTableViewCell: UITableViewCell {
     @IBOutlet weak var originLabel: UILabel!
     @IBOutlet weak var lifeSpanLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
+    @IBOutlet weak var energyLevelLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,12 +35,15 @@ class BreedsListTableViewCell: UITableViewCell {
         self.originLabel.text = "Origin: \(breed.origin ?? "NA")"
         self.lifeSpanLabel.text = "Life-Span: \(breed.life_span ?? "NA")"
         self.weightLabel.text = "Weight(in metrics): \(breed.weight?.metric ?? "NA")"
+        switch breed.energy_level ?? 0 {
+        case 0..<3:
+            self.energyLevelLabel.text = "Energy Level: 🥱"
+            
+        case 3:
+            self.energyLevelLabel.text = "Energy Level: 🙃"
+            
+        default:
+            self.energyLevelLabel.text = "Energy Level: 😃"
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }

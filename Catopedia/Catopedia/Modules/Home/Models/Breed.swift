@@ -15,6 +15,7 @@ struct Breed: Decodable {
     var origin: String?
     var breedDescription: String?
     var life_span: String?
+    var energy_level: Int?
     var alt_names: String?
     var image: BreedImage?
     
@@ -26,6 +27,7 @@ struct Breed: Decodable {
         case origin
         case breedDescription = "description"
         case life_span
+        case energy_level
         case alt_names
         case image
     }
@@ -39,6 +41,7 @@ struct Breed: Decodable {
         origin = try container.decodeIfPresent(String.self, forKey: .origin)
         breedDescription = try container.decodeIfPresent(String.self, forKey: .breedDescription)
         life_span = try container.decodeIfPresent(String.self, forKey: .life_span)
+        energy_level = try container.decodeIfPresent(Int.self, forKey: .energy_level)
         alt_names = try container.decodeIfPresent(String.self, forKey: .alt_names)
         image = try container.decodeIfPresent(BreedImage.self, forKey: .image)
     }

@@ -22,11 +22,11 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breeds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKt-9L-sYM">
                                         <rect key="frame" x="24" y="26" width="66.5" height="28.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="24"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" red="0.23137254900000001" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.20000000000000001" green="0.32941176470588235" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.97647058823529409" green="0.96078431372549022" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="LKt-9L-sYM" firstAttribute="leading" secondItem="awq-hw-PVv" secondAttribute="leading" constant="24" id="4bT-Ui-P3u"/>
                                     <constraint firstItem="LKt-9L-sYM" firstAttribute="centerY" secondItem="awq-hw-PVv" secondAttribute="centerY" id="rGM-Zx-ioB"/>
@@ -35,11 +35,11 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="sUl-TB-RPo">
                                 <rect key="frame" x="0.0" y="124" width="414" height="738"/>
-                                <color key="backgroundColor" red="0.20000000000000001" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.97647058823529409" green="0.96078431372549022" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.97647058819999999" green="0.96078431369999995" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="sUl-TB-RPo" firstAttribute="top" secondItem="awq-hw-PVv" secondAttribute="bottom" id="6y0-GZ-3sN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sUl-TB-RPo" secondAttribute="trailing" id="Md0-6E-AjQ"/>
@@ -57,6 +57,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139" y="117"/>
+        </scene>
+        <!--Breed Detail View Controller-->
+        <scene sceneID="wb8-UX-6gM">
+            <objects>
+                <viewController id="TZs-bt-aM8" customClass="BreedDetailViewController" customModule="Catopedia" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cb6-00-9ip">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SIJ-cI-4eU">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jhR-Gn-3Dt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jhR-Gn-3Dt" firstAttribute="bottom" secondItem="SIJ-cI-4eU" secondAttribute="bottom" id="ANB-gc-THo"/>
+                            <constraint firstItem="SIJ-cI-4eU" firstAttribute="leading" secondItem="jhR-Gn-3Dt" secondAttribute="leading" id="Obz-xq-Kdj"/>
+                            <constraint firstItem="jhR-Gn-3Dt" firstAttribute="trailing" secondItem="SIJ-cI-4eU" secondAttribute="trailing" id="Zwq-jj-Ifa"/>
+                            <constraint firstItem="SIJ-cI-4eU" firstAttribute="top" secondItem="jhR-Gn-3Dt" secondAttribute="top" id="wOY-w6-lyz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="breedDetailTableView" destination="SIJ-cI-4eU" id="DRc-p4-7B9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rB5-SK-lX5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="839" y="117"/>
         </scene>
     </scenes>
     <resources>
