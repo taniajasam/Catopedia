@@ -112,4 +112,9 @@ extension BreedsListingViewController: UITextFieldDelegate {
         self.viewModel.searchBreed(queryString: queryString)
         return true
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
