@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2014E90B28CDF2E400A23894 /* CellConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2014E90A28CDF2E400A23894 /* CellConstants.swift */; };
 		2067D53A28CC8E7E0032BA46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067D53928CC8E7E0032BA46 /* AppDelegate.swift */; };
 		2067D53C28CC8E7E0032BA46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067D53B28CC8E7E0032BA46 /* SceneDelegate.swift */; };
 		2067D54128CC8E7E0032BA46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2067D53F28CC8E7E0032BA46 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		06C391BC5E9F7144B7139126 /* Pods_Catopedia_CatopediaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Catopedia_CatopediaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D9887D40F36FD87FE26E9B /* Pods-Catopedia-CatopediaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catopedia-CatopediaUITests.debug.xcconfig"; path = "Target Support Files/Pods-Catopedia-CatopediaUITests/Pods-Catopedia-CatopediaUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2014E90A28CDF2E400A23894 /* CellConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellConstants.swift; sourceTree = "<group>"; };
 		2067D53628CC8E7E0032BA46 /* Catopedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catopedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2067D53928CC8E7E0032BA46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2067D53B28CC8E7E0032BA46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				2067D58228CC9FD40032BA46 /* URLList.swift */,
+				2014E90A28CDF2E400A23894 /* CellConstants.swift */,
 			);
 			path = AppConstants;
 			sourceTree = "<group>";
@@ -601,6 +604,7 @@
 				2067D53C28CC8E7E0032BA46 /* SceneDelegate.swift in Sources */,
 				2067D58F28CCDFC00032BA46 /* BreedImageTableViewCell.swift in Sources */,
 				2067D59628CCE0020032BA46 /* BreedDetailViewModel.swift in Sources */,
+				2014E90B28CDF2E400A23894 /* CellConstants.swift in Sources */,
 				2067D58328CC9FD40032BA46 /* URLList.swift in Sources */,
 				2067D58528CCA0B30032BA46 /* Breed.swift in Sources */,
 				2067D59C28CD05210032BA46 /* ImageExtension.swift in Sources */,

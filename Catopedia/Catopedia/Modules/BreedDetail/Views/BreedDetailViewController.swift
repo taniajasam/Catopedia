@@ -30,8 +30,8 @@ class BreedDetailViewController: UIViewController {
     }
     
     func initialiseTableView() {
-        breedDetailTableView.register(UINib(nibName: "BreedImageTableViewCell", bundle: nil), forCellReuseIdentifier: "BreedImageTableViewCell")
-        breedDetailTableView.register(UINib(nibName: "BreedDescriptionTableViewCell", bundle: nil), forCellReuseIdentifier: "BreedDescriptionTableViewCell")
+        breedDetailTableView.register(UINib(nibName: CellConstants.BreedImageTableViewCell, bundle: nil), forCellReuseIdentifier: CellConstants.BreedImageTableViewCell)
+        breedDetailTableView.register(UINib(nibName: CellConstants.BreedDescriptionTableViewCell, bundle: nil), forCellReuseIdentifier: CellConstants.BreedDescriptionTableViewCell)
         breedDetailTableView.delegate = self
         breedDetailTableView.dataSource = self
     }
@@ -45,14 +45,14 @@ extension BreedDetailViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
-            if let cell: BreedImageTableViewCell = tableView.dequeueReusableCell(withIdentifier: "BreedImageTableViewCell", for: indexPath) as? BreedImageTableViewCell {
+            if let cell: BreedImageTableViewCell = tableView.dequeueReusableCell(withIdentifier: CellConstants.BreedImageTableViewCell, for: indexPath) as? BreedImageTableViewCell {
                 cell.setupImageView(breedImage: self.viewModel?.breed?.image)
                 self.view.backgroundColor = cell.breedImageView.image?.averageColor
                 return cell
             }
             
         case 1:
-            if let cell: BreedDescriptionTableViewCell = tableView.dequeueReusableCell(withIdentifier: "BreedDescriptionTableViewCell", for: indexPath) as? BreedDescriptionTableViewCell {
+            if let cell: BreedDescriptionTableViewCell = tableView.dequeueReusableCell(withIdentifier: CellConstants.BreedDescriptionTableViewCell, for: indexPath) as? BreedDescriptionTableViewCell {
                 cell.setupData(breed: self.viewModel?.breed)
                 cell.delegate = self
                 return cell

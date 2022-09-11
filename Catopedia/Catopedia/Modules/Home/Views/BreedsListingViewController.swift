@@ -11,6 +11,7 @@ import Combine
 class BreedsListingViewController: UIViewController {
     
     @IBOutlet weak var breedsListTableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private var viewModel: BreedsListViewModel = BreedsListViewModel(networkManager: NetworkManager.sharedInstance)
     var subscriptions: Set<AnyCancellable> = Set<AnyCancellable>()
@@ -28,7 +29,7 @@ class BreedsListingViewController: UIViewController {
     }
     
     func initialiseTableView() {
-        breedsListTableView.register(UINib(nibName: "BreedsListTableViewCell", bundle: nil), forCellReuseIdentifier: "BreedsListTableViewCell")
+        breedsListTableView.register(UINib(nibName: CellConstants.BreedsListTableViewCell, bundle: nil), forCellReuseIdentifier: CellConstants.BreedsListTableViewCell)
         breedsListTableView.delegate = self
         breedsListTableView.dataSource = self
     }
@@ -38,9 +39,10 @@ class BreedsListingViewController: UIViewController {
             .receive(on: RunLoop.main)
             .sink { [weak self] breedList in
                 if breedList.isEmpty {
-                    
+                    self?.activityIndicator.startAnimating()
                 } else {
                     self?.breedsListTableView.reloadData()
+                    self?.activityIndicator.stopAnimating()
                 }
             }
             .store(in: &subscriptions)
@@ -49,10 +51,17 @@ class BreedsListingViewController: UIViewController {
             .receive(on: RunLoop.main)
             .sink { [weak self] error in
                 if error != nil {
-                    // show alert
+                    self?.showAlertForError(error: error)
+                    self?.activityIndicator.stopAnimating()
                 }
             }
             .store(in: &subscriptions)
+    }
+    
+    func showAlertForError(error: Error?) {
+        let alertController: UIAlertController = UIAlertController(title: "Oops!", message: error?.localizedDescription, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: .default))
+        self.present(alertController, animated: true)
     }
 }
 
@@ -63,7 +72,7 @@ extension BreedsListingViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell: BreedsListTableViewCell = tableView.dequeueReusableCell(withIdentifier: "BreedsListTableViewCell", for: indexPath) as? BreedsListTableViewCell {
+        if let cell: BreedsListTableViewCell = tableView.dequeueReusableCell(withIdentifier: CellConstants.BreedsListTableViewCell, for: indexPath) as? BreedsListTableViewCell {
             cell.setupData(breed: self.viewModel.breedsList[indexPath.row])
             return cell
         }
