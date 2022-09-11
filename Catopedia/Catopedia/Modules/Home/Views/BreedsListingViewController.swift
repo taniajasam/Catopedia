@@ -12,12 +12,14 @@ class BreedsListingViewController: UIViewController {
     
     @IBOutlet weak var breedsListTableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var searchBar: UITextField!
     
     private var viewModel: BreedsListViewModel = BreedsListViewModel(networkManager: NetworkManager.sharedInstance)
-    var subscriptions: Set<AnyCancellable> = Set<AnyCancellable>()
+    private var subscriptions: Set<AnyCancellable> = Set<AnyCancellable>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.searchBar.delegate = self
         self.initialiseTableView()
         self.bindViewModel()
         self.viewModel.fetchBreedsList()
@@ -35,15 +37,10 @@ class BreedsListingViewController: UIViewController {
     }
         
     func bindViewModel() {
-        viewModel.$breedsList
+        viewModel.$filteredResults
             .receive(on: RunLoop.main)
             .sink { [weak self] breedList in
-                if breedList.isEmpty {
-                    self?.activityIndicator.startAnimating()
-                } else {
-                    self?.breedsListTableView.reloadData()
-                    self?.activityIndicator.stopAnimating()
-                }
+                self?.breedsListTableView.reloadData()
             }
             .store(in: &subscriptions)
         
@@ -52,6 +49,16 @@ class BreedsListingViewController: UIViewController {
             .sink { [weak self] error in
                 if error != nil {
                     self?.showAlertForError(error: error)
+                }
+            }
+            .store(in: &subscriptions)
+        
+        viewModel.$shouldShowSpinner
+            .receive(on: RunLoop.main)
+            .sink { [weak self] shouldShowSpinner in
+                if shouldShowSpinner {
+                    self?.activityIndicator.startAnimating()
+                } else {
                     self?.activityIndicator.stopAnimating()
                 }
             }
@@ -68,12 +75,13 @@ class BreedsListingViewController: UIViewController {
 extension BreedsListingViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.getNumberOfItems()
+        viewModel.getNumberOfItems()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell: BreedsListTableViewCell = tableView.dequeueReusableCell(withIdentifier: CellConstants.BreedsListTableViewCell, for: indexPath) as? BreedsListTableViewCell {
-            cell.setupData(breed: self.viewModel.breedsList[indexPath.row])
+        if let cell: BreedsListTableViewCell = tableView.dequeueReusableCell(withIdentifier: CellConstants.BreedsListTableViewCell, for: indexPath) as? BreedsListTableViewCell,
+           indexPath.row < self.viewModel.filteredResults.count {
+            cell.setupData(breed: self.viewModel.filteredResults[indexPath.row])
             return cell
         }
         return UITableViewCell()
@@ -85,9 +93,23 @@ extension BreedsListingViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let breedDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BreedDetailViewController") as? BreedDetailViewController {
-            breedDetailVC.viewModel = BreedDetailViewModel(breed: self.viewModel.breedsList[indexPath.row])
+            breedDetailVC.viewModel = BreedDetailViewModel(breed: self.viewModel.filteredResults[indexPath.row])
             self.navigationController?.pushViewController(breedDetailVC, animated: true)
         }
+    }
+}
+
+extension BreedsListingViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
+        var queryString = ""
+        if range.length == 1 && string.count == 0 {
+            queryString = String((textField.text ?? "").dropLast())
+        }
+        else {
+            queryString = (textField.text ?? "").appending(string)
+        }
+        self.viewModel.searchBreed(queryString: queryString)
+        return true
     }
 }

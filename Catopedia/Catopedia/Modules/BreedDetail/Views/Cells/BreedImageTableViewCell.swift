@@ -24,17 +24,10 @@ class BreedImageTableViewCell: UITableViewCell {
     }
     
     func setupImageView(breedImage: BreedImage?) {
-        if let breedImage = breedImage {
-            self.breedImageView.kf.setImage(with: URL(string: breedImage.url ?? ""))
-            let aspectRatio: CGFloat =       CGFloat(breedImage.width ?? 0)/CGFloat(breedImage.height ?? 1)
-            breedImageViewHeightConstraint.constant = self.breedImageView.frame.size.width*aspectRatio
-        }
+        guard let breedImage: BreedImage = breedImage else { return }
+        
+        self.breedImageView.kf.setImage(with: URL(string: breedImage.url ?? ""))
+        let aspectRatio: CGFloat = CGFloat(breedImage.width ?? 0)/CGFloat(breedImage.height ?? 1)
+        breedImageViewHeightConstraint.constant = self.breedImageView.frame.size.width * aspectRatio
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }

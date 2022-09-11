@@ -9,22 +9,29 @@ import Foundation
 import Combine
 
 class BreedsListViewModel: ObservableObject {
-    lazy var subscriptions: Set<AnyCancellable> = Set<AnyCancellable>()
-    var networkManager: NetworkRequestable?
+    private lazy var subscriptions: Set<AnyCancellable> = Set<AnyCancellable>()
+    private var networkManager: NetworkRequestable?
+    private var breedsList: [Breed] = []
     
-    @Published var breedsList: [Breed] = []
     @Published var error: Error?
+    @Published var filteredResults: [Breed] = []
+    @Published var shouldShowSpinner: Bool = false
     
-    let pageSize: Int = 10
-    var pageCount: Int = 0
+    private let pageSize: Int = 10
+    private var pageCount: Int = 0
+    private var isPaginationCallInProgress: Bool = false
     
     init(networkManager: NetworkRequestable) {
         self.networkManager = networkManager
     }
     
+    /// Calls network manager to fetch the data for provided page count with given page size.
     func fetchBreedsList() {
+        shouldShowSpinner = true
         networkManager?.dataTask(with: BreedsListAPIConfiguration(pageSize: pageSize, pageCount: pageCount), type: Breed.self)
             .sink(receiveCompletion: { [weak self] completion in
+                self?.isPaginationCallInProgress = false
+                self?.shouldShowSpinner = false
                 switch completion {
                 case .failure(let error):
                     self?.error = error
@@ -38,20 +45,45 @@ class BreedsListViewModel: ObservableObject {
                     self?.pageCount = -1
                 } else {
                     self?.breedsList.append(contentsOf: response)
+                    self?.filteredResults = (self?.breedsList)!
                     self?.pageCount += 1
                 }
             })
             .store(in: &subscriptions)
     }
     
+    /// Returns number of rows for the breed list.
+    /// - Returns: count for the breeds to be shown in the list.
     func getNumberOfItems() -> Int {
-        self.breedsList.count 
+        self.filteredResults.count
     }
     
+    /// This method calls makes the API call based on following conditions.
+    /// - Remaining cells is less than 5
+    /// - There are more pages to be fetched (this is being checked by page count as -1). Ideally, we would get total pages through API response.
+    /// - Next page should not be called when search is being done.
+    /// - Next page should not be called while previous pagination call is in progress.
+    /// - Parameter cellIndex: Index of the cell while scrolling (willDisplayCell)
     func fetchDataIfNeeded(cellIndex: Int) {
-        /// Ideally we would be getting totalPages or identifier in some API response and then pageCount (-1) condition won't be required
-        if self.breedsList.count - 5 < cellIndex, self.pageCount != -1 {
+        if self.filteredResults.count - 5 < cellIndex,
+           self.pageCount != -1,
+           filteredResults.count == breedsList.count,
+           isPaginationCallInProgress == false {
             self.fetchBreedsList()
+            self.isPaginationCallInProgress = true
+        }
+    }
+    
+    /// This method performs search on the available data (it does not make an API call to search API).
+    /// - Parameter queryString: string to be searched.
+    func searchBreed(queryString: String) {
+        if queryString.isEmpty {
+            filteredResults = breedsList
+        } else {
+            filteredResults = breedsList.filter({ breed in
+                guard let breedName = breed.name else { return false}
+                return breedName.lowercased().contains(queryString.lowercased())
+            })
         }
     }
 }

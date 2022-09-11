@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum BreedDetailSection: Int {
+    case image
+    case description
+}
+
 class BreedDetailViewController: UIViewController {
     
     @IBOutlet weak var breedDetailTableView: UITableView!
@@ -39,29 +44,29 @@ class BreedDetailViewController: UIViewController {
 
 extension BreedDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel?.getNumberOfItems() ?? 0
+        self.viewModel?.getNumberOfItems() ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.row {
-        case 0:
+        guard let breedDetailSection: BreedDetailSection = BreedDetailSection(rawValue: indexPath.row) else { return UITableViewCell() }
+        
+        switch breedDetailSection {
+        case .image:
             if let cell: BreedImageTableViewCell = tableView.dequeueReusableCell(withIdentifier: CellConstants.BreedImageTableViewCell, for: indexPath) as? BreedImageTableViewCell {
                 cell.setupImageView(breedImage: self.viewModel?.breed?.image)
                 self.view.backgroundColor = cell.breedImageView.image?.averageColor
                 return cell
             }
+            return UITableViewCell()
             
-        case 1:
+        case .description:
             if let cell: BreedDescriptionTableViewCell = tableView.dequeueReusableCell(withIdentifier: CellConstants.BreedDescriptionTableViewCell, for: indexPath) as? BreedDescriptionTableViewCell {
                 cell.setupData(breed: self.viewModel?.breed)
                 cell.delegate = self
                 return cell
             }
-            
-        default:
             return UITableViewCell()
         }
-        return UITableViewCell()
     }
 }
 
