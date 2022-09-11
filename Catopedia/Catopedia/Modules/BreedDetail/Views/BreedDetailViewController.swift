@@ -46,13 +46,15 @@ extension BreedDetailViewController: UITableViewDelegate, UITableViewDataSource 
         switch indexPath.row {
         case 0:
             if let cell: BreedImageTableViewCell = tableView.dequeueReusableCell(withIdentifier: "BreedImageTableViewCell", for: indexPath) as? BreedImageTableViewCell {
-                cell.setupImageView(breedImage: (self.viewModel?.breed?.image)!)
+                cell.setupImageView(breedImage: self.viewModel?.breed?.image)
                 self.view.backgroundColor = cell.breedImageView.image?.averageColor
                 return cell
             }
             
         case 1:
             if let cell: BreedDescriptionTableViewCell = tableView.dequeueReusableCell(withIdentifier: "BreedDescriptionTableViewCell", for: indexPath) as? BreedDescriptionTableViewCell {
+                cell.setupData(breed: self.viewModel?.breed)
+                cell.delegate = self
                 return cell
             }
             
@@ -60,5 +62,11 @@ extension BreedDetailViewController: UITableViewDelegate, UITableViewDataSource 
             return UITableViewCell()
         }
         return UITableViewCell()
+    }
+}
+
+extension BreedDetailViewController: BreedDescriptionTableViewCellDelegate {
+    func urlClicked(url: URL) {
+        UIApplication.shared.open(url)
     }
 }

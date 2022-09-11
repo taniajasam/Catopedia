@@ -23,10 +23,12 @@ class BreedImageTableViewCell: UITableViewCell {
         self.breedImageView.layer.cornerRadius = 12
     }
     
-    func setupImageView(breedImage: BreedImage) {
-        self.breedImageView.kf.setImage(with: URL(string: breedImage.url ?? ""))
-        let aspectRatio: CGFloat =       CGFloat(breedImage.width ?? 0)/CGFloat(breedImage.height ?? 1)
-        breedImageViewHeightConstraint.constant = self.breedImageView.frame.size.width*aspectRatio
+    func setupImageView(breedImage: BreedImage?) {
+        if let breedImage = breedImage {
+            self.breedImageView.kf.setImage(with: URL(string: breedImage.url ?? ""))
+            let aspectRatio: CGFloat =       CGFloat(breedImage.width ?? 0)/CGFloat(breedImage.height ?? 1)
+            breedImageViewHeightConstraint.constant = self.breedImageView.frame.size.width*aspectRatio
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

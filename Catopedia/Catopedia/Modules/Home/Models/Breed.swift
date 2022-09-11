@@ -18,6 +18,7 @@ struct Breed: Decodable {
     var energy_level: Int?
     var alt_names: String?
     var image: BreedImage?
+    var wikipedia_url: String?
     
     enum CodingKeys: String, CodingKey {
         case weight
@@ -30,6 +31,7 @@ struct Breed: Decodable {
         case energy_level
         case alt_names
         case image
+        case wikipedia_url
     }
     
     init(from decoder: Decoder) throws {
@@ -44,6 +46,7 @@ struct Breed: Decodable {
         energy_level = try container.decodeIfPresent(Int.self, forKey: .energy_level)
         alt_names = try container.decodeIfPresent(String.self, forKey: .alt_names)
         image = try container.decodeIfPresent(BreedImage.self, forKey: .image)
+        wikipedia_url = try container.decodeIfPresent(String.self, forKey: .wikipedia_url)
     }
 }
 

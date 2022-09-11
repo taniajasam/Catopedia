@@ -10,56 +10,70 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BreedDescriptionTableViewCell" rowHeight="206" id="KGk-i7-Jjw" customClass="BreedDescriptionTableViewCell" customModule="Catopedia" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="442" height="206"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="BreedDescriptionTableViewCell" rowHeight="252" id="KGk-i7-Jjw" customClass="BreedDescriptionTableViewCell" customModule="Catopedia" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="453" height="252"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="442" height="206"/>
+                <rect key="frame" x="0.0" y="0.0" width="453" height="252"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uda-9i-mPn">
-                        <rect key="frame" x="0.0" y="8" width="442" height="198"/>
+                        <rect key="frame" x="0.0" y="8" width="453" height="244"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8a1-Kr-oA2">
-                                <rect key="frame" x="24" y="20" width="394" height="28.5"/>
+                                <rect key="frame" x="24" y="20" width="405" height="28.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="24"/>
                                 <color key="textColor" red="0.23137254900000001" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="etd-v0-a5z">
-                                <rect key="frame" x="24" y="56.5" width="394" height="21.5"/>
+                                <rect key="frame" x="24" y="56.5" width="405" height="21.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" red="0.23137254900000001" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePo-T6-foJ">
-                                <rect key="frame" x="24" y="94" width="394" height="34.5"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <rect key="frame" x="24" y="94" width="405" height="56.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <color key="textColor" red="0.23137254900000001" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Know more about this from" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2P-rr-UZL">
-                                <rect key="frame" x="24" y="152.5" width="394" height="21.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Know more" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2P-rr-UZL">
+                                <rect key="frame" x="24" y="174.5" width="405" height="21.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" red="0.23137254900000001" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="https://www.google.com" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="gOH-Yb-Sec">
+                                <rect key="frame" x="20" y="200" width="409" height="36"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="los-oE-fHz"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.97647058823529409" green="0.96078431372549022" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="gOH-Yb-Sec" secondAttribute="bottom" constant="8" id="2BF-6K-iOn"/>
                             <constraint firstItem="etd-v0-a5z" firstAttribute="top" secondItem="8a1-Kr-oA2" secondAttribute="bottom" constant="8" id="33N-wF-SlD"/>
                             <constraint firstItem="U2P-rr-UZL" firstAttribute="trailing" secondItem="ePo-T6-foJ" secondAttribute="trailing" id="3dI-E5-6ep"/>
+                            <constraint firstItem="gOH-Yb-Sec" firstAttribute="top" secondItem="U2P-rr-UZL" secondAttribute="bottom" constant="4" id="4TD-KP-zar"/>
                             <constraint firstItem="etd-v0-a5z" firstAttribute="leading" secondItem="8a1-Kr-oA2" secondAttribute="leading" id="83Q-Jy-9dp"/>
                             <constraint firstItem="ePo-T6-foJ" firstAttribute="top" secondItem="etd-v0-a5z" secondAttribute="bottom" constant="16" id="BIQ-Xx-1NB"/>
                             <constraint firstItem="etd-v0-a5z" firstAttribute="trailing" secondItem="8a1-Kr-oA2" secondAttribute="trailing" id="NyC-Ut-dMt"/>
                             <constraint firstItem="ePo-T6-foJ" firstAttribute="trailing" secondItem="etd-v0-a5z" secondAttribute="trailing" id="RNa-Vh-DJ2"/>
-                            <constraint firstAttribute="bottom" secondItem="U2P-rr-UZL" secondAttribute="bottom" constant="24" id="Yzl-jC-dI4"/>
                             <constraint firstItem="ePo-T6-foJ" firstAttribute="leading" secondItem="etd-v0-a5z" secondAttribute="leading" id="af5-V0-Ch5"/>
                             <constraint firstItem="U2P-rr-UZL" firstAttribute="leading" secondItem="ePo-T6-foJ" secondAttribute="leading" id="bGR-9d-u3P"/>
                             <constraint firstItem="8a1-Kr-oA2" firstAttribute="top" secondItem="uda-9i-mPn" secondAttribute="top" constant="20" id="cyk-Y4-SlG"/>
+                            <constraint firstItem="gOH-Yb-Sec" firstAttribute="trailing" secondItem="U2P-rr-UZL" secondAttribute="trailing" id="ggF-MS-s6X"/>
                             <constraint firstItem="U2P-rr-UZL" firstAttribute="top" secondItem="ePo-T6-foJ" secondAttribute="bottom" constant="24" id="hms-qd-661"/>
                             <constraint firstItem="8a1-Kr-oA2" firstAttribute="leading" secondItem="uda-9i-mPn" secondAttribute="leading" constant="24" id="t4I-jg-mtC"/>
                             <constraint firstAttribute="trailing" secondItem="8a1-Kr-oA2" secondAttribute="trailing" constant="24" id="yhB-RC-btS"/>
+                            <constraint firstItem="gOH-Yb-Sec" firstAttribute="leading" secondItem="U2P-rr-UZL" secondAttribute="leading" constant="-4" id="ziU-tL-qx5"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -72,19 +86,21 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="breedContainerView" destination="uda-9i-mPn" id="L3p-3B-7CW"/>
                 <outlet property="breedDescriptionLabel" destination="ePo-T6-foJ" id="fWg-jg-uj7"/>
+                <outlet property="knowMoreLabel" destination="U2P-rr-UZL" id="L7c-vc-DwF"/>
                 <outlet property="nameLabel" destination="8a1-Kr-oA2" id="p3H-vP-Dum"/>
                 <outlet property="originLabel" destination="etd-v0-a5z" id="ec4-ay-Xiv"/>
-                <outlet property="wikipediaLabel" destination="U2P-rr-UZL" id="VAk-ka-2jA"/>
+                <outlet property="urlTextView" destination="gOH-Yb-Sec" id="SfY-LU-iQy"/>
             </connections>
-            <point key="canvasLocation" x="226.08695652173915" y="79.6875"/>
+            <point key="canvasLocation" x="234.05797101449278" y="95.089285714285708"/>
         </tableViewCell>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
