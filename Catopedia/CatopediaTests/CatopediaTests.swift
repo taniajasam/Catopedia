@@ -6,31 +6,59 @@
 //
 
 import XCTest
+import Combine
 @testable import Catopedia
 
 class CatopediaTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    var sut: BreedsListViewModel?
+    
+    override func setUp() {
+        let testBundle = Bundle(for: type(of: self))
+        let path = testBundle.path(forResource: "BreedsTestData", ofType: "json")
+        if let data = try? Data(contentsOf: URL(fileURLWithPath: path!), options: .alwaysMapped) {
+            sut = BreedsListViewModel(networkManager: FakeNetworkManager(fakeData: data))
         }
     }
+    
+    func testNumberOfItems() {
+        sut?.fetchBreedsList()
+        let numberOfItems = sut?.getNumberOfItems()
+        XCTAssertEqual(10, numberOfItems, "Number of items should be 10")
+    }
 
+    func testSearchSuccess() {
+        sut?.fetchBreedsList()
+        sut?.searchBreed(queryString: "Abys")
+        let numberOfItems = sut?.getNumberOfItems()
+        XCTAssertEqual(1, numberOfItems, "Number of items should be 1")
+    }
+    
+    func testSearchFailure() {
+        sut?.fetchBreedsList()
+        sut?.searchBreed(queryString: "huj")
+        let numberOfItems = sut?.getNumberOfItems()
+        XCTAssertEqual(0, numberOfItems, "Number of items should be 0")
+    }
+}
+
+class FakeNetworkManager: NetworkRequestable {
+    
+    var fakeData: Data
+    
+    init(fakeData: Data) {
+        self.fakeData = fakeData
+    }
+    
+    func dataTask<T>(with requestConfig: RequestConfiguration, type: T.Type) -> Future<[T], Error> where T : Decodable {
+        return Future<[T], Error> { [weak self] promise in
+            guard let self = self else { return promise(.failure(NetworkError.unknown))}
+            
+            let decoder: JSONDecoder = JSONDecoder()
+            if let fakeResponse = try? decoder.decode([T].self, from: self.fakeData) {
+                promise(.success(fakeResponse))
+            } else {
+                promise(.failure(NetworkError.unknown))
+            }
+        }
+    }
 }
