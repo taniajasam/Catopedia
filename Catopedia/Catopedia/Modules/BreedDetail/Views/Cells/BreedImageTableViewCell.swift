@@ -24,10 +24,8 @@ class BreedImageTableViewCell: UITableViewCell {
     }
     
     func setupImageView(breedImage: BreedImage?) {
-        guard let breedImage: BreedImage = breedImage else { return }
-        
-        self.breedImageView.kf.setImage(with: URL(string: breedImage.url ?? ""))
-        let aspectRatio: CGFloat = CGFloat(breedImage.width ?? 0)/CGFloat(breedImage.height ?? 1)
+        self.breedImageView.kf.setImage(with: URL(string: breedImage?.url ?? ""), placeholder: UIImage(named: "placeholder"))
+        let aspectRatio: CGFloat = CGFloat(breedImage?.width ?? 1)/CGFloat(breedImage?.height ?? 1)
         breedImageViewHeightConstraint.constant = self.breedImageView.frame.size.width * aspectRatio
     }
 }

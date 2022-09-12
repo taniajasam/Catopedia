@@ -29,7 +29,7 @@ class BreedsListTableViewCell: UITableViewCell {
     }
     
     func setupData(breed: Breed) {
-        self.breedImageView.kf.setImage(with: URL(string: breed.image?.url ?? ""))
+        self.breedImageView.kf.setImage(with: URL(string: breed.image?.url ?? ""), placeholder: UIImage(named: "placeholder"))
         self.nameLabel.text = breed.name ?? ""
         self.originLabel.text = "Origin: \(breed.origin ?? "NA")"
         self.lifeSpanLabel.text = "Life-Span: \(breed.life_span ?? "NA")"
